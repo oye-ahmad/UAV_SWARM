@@ -6,6 +6,7 @@ def generate_launch_description():
         Node(package= 'my_robot_controller',
              executable='ahmad_node',
              name='Publisher',
+             parameters=[{'timer':0.1}],
              output='screen'),
         Node(package= 'my_robot_controller',
              executable='subscriber_node',

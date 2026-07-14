@@ -4,6 +4,7 @@ import rclpy
 
 from rclpy.node import Node
 from std_msgs.msg import String
+from rcl_interfaces.msg import SetParametersResult
 
 
 class myNode(Node):
@@ -11,9 +12,36 @@ class myNode(Node):
         super().__init__("Publisher")
 
         self.publisher_ = self.create_publisher(String, 'hello_count', 10)
-        timer=0.1
-        self.create_timer(timer, self.timer_callback)
+        self.declare_parameter("timer", 0.1)
+        timer=self.get_parameter("timer").value
+        self.timer=self.create_timer(timer, self.timer_callback)
         self.counter=0
+
+        self.add_on_set_parameters_callback(
+            self.parameter_callback
+        )
+
+
+    def parameter_callback(self, params):
+
+        for param in params:
+
+            if param.name == "timer":
+
+                self.get_logger().info(
+                    f"Timer changed to {param.value}"
+                )
+
+                self.timer.cancel()
+
+                self.timer = self.create_timer(
+                    param.value,
+                    self.timer_callback
+                )
+
+        return SetParametersResult(
+            successful=True
+        )
 
     def timer_callback(self):
 
