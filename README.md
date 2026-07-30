@@ -60,85 +60,87 @@ UAV_SWARM/
 └── log.txt
 
 ```
-# Progress Timeline
-**Week 1 — Foundations**
+## 🚀 Progress Timeline
 
-Task,Description,Status
-OpenCV + NumPy,"Image manipulation, array operations, basic computer vision pipeline",✅ Completed
-YOLOv8 Chicken Detection,First end-to-end object detection notebook using Ultralytics YOLOv8,✅ Completed
+### Week 1 — Foundations
+- **OpenCV + NumPy** — Image manipulation, array operations, and basic computer vision pipeline ✅
+- **YOLOv8 Chicken Detection** — First end-to-end object detection notebook using Ultralytics YOLOv8 ✅
 
-**Week 2 — Detection & Image Processing**
+### Week 2 — Detection & Image Processing
+- **YOLO on Pascal VOC** — Training and inference on Pascal VOC dataset ✅
+- **Sobel Operator** — Edge detection experiments ✅
+- **RGB & Grayscale Pipelines** — Color space handling and preprocessing ✅
+- **Video Processing** — Working with video streams and frame extraction ✅
 
-Task,Description,Status
-YOLO on Pascal VOC,Training / inference on Pascal VOC dataset,✅ Completed
-Sobel Operator,Edge detection experiments,✅ Completed
-RGB & Grayscale Pipelines,Color space handling and preprocessing,✅ Completed
-Video Processing,Working with video streams and frame extraction,✅ Completed
+### Week 3 — Dataset Engineering & Motion
+- **Annotation Conversion** — Pascal / VisDrone → YOLO format conversion ✅
+- **Annotation Visualization** — Drawing and verifying bounding boxes ✅
+- **Dataset Splitting** — Train / Val / Test split utilities ✅
+- **Motion Detection** — Frame-difference based motion detection ✅
+- **YOLOv8 Models** — `yolov8n.pt` & `yolov8s.pt` integrated ✅
 
+### Current Focus — ROS 2 Autonomous Flight
+- **my_robot_controller** — Basic publisher / subscriber nodes ✅
+- **drone_mission package** — Full autonomous waypoint mission with MAVROS + ArduPilot SITL ✅
+- **Mission State Machine** — INIT → ARM → TAKEOFF → NAVIGATE ↔ HOVER → RTL → LAND → COMPLETE ✅
+- **Failsafes** — Battery %, connection timeout, FCU disconnect → automatic RTL ✅
+- **Visualization** — Live RViz2 path + pose ✅
+- **Recording** — ROS 2 bag recording script ✅
 
-**Week 3 — Dataset Engineering & Motion**
+---
 
-Task,Description,Status
-Annotation Conversion,Pascal / VisDrone → YOLO format conversion,✅ Completed
-Annotation Visualization,Drawing and verifying bounding boxes,✅ Completed
-Dataset Splitting,Train / Val / Test split utilities,✅ Completed
-Motion Detection,Frame-difference based motion detection,✅ Completed
-YOLOv8 Models,yolov8n.pt & yolov8s.pt integrated,✅ Completed
+## 🛠️ Tech Stack
 
+- **Simulation** → ArduPilot SITL, Gazebo (optional)
+- **Middleware** → ROS 2 (Humble / Jazzy), MAVROS
+- **Flight Control** → ArduCopter, GUIDED mode, RTL
+- **Computer Vision** → OpenCV, NumPy, Ultralytics YOLOv8
+- **Languages** → Python 3.10+
+- **Tools** → RViz2, ros2 bag, Jupyter Notebooks
 
-**Current Focus — ROS 2 Autonomous Flight**
+---
 
-Component,Description,Status
-my_robot_controller,Basic publisher / subscriber nodes,✅ Completed
-drone_mission package,Full autonomous waypoint mission with MAVROS + ArduPilot SITL,✅ Completed
-Mission State Machine,INIT → ARM → TAKEOFF → NAVIGATE ↔ HOVER → RTL → LAND → COMPLETE,✅ Completed
-Failsafes,"Battery %, connection timeout, FCU disconnect → automatic RTL",✅ Completed
-Visualization,Live RViz2 path + pose,✅ Completed
-Recording,ROS 2 bag recording script,✅ Completed
+## 🛫 Running the Autonomous Mission
 
-**🛠️ Tech Stack**
+**1. Prerequisites**
 
-Category,Technologies
-Simulation,"ArduPilot SITL, Gazebo (optional)"
-Middleware,"ROS 2 (Humble / Jazzy), MAVROS"
-Flight Control,"ArduCopter, GUIDED mode, RTL"
-Computer Vision,"OpenCV, NumPy, Ultralytics YOLOv8"
-Languages,Python 3.10+
-Tools,"RViz2, ros2 bag, Jupyter Notebooks"
-
-**🛫 Running the Autonomous Mission**
-
-1. Prerequisites
-
-Ubuntu 22.04 / 24.04
-ROS 2 (Humble or Jazzy)
+Ubuntu 22.04
+ROS 2 (Humble)
 ArduPilot SITL
-MAVROS
+MAVROS 
+Gazebo 
 
-2. Build the package
+**2. Build the package**
 
-cd ~/mission_ws
+cd ~/UAV_SWARM
 colcon build --packages-select drone_mission
 source install/setup.bash
 
-3. Start ArduPilot SITL
+**3. Start ArduPilot SITL**
 
 cd ~/ardupilot/ArduCopter
-sim_vehicle.py -v ArduCopter --map --console
+sim_vehicle.py -v ArduCopter --f gazebo-iris --console --model JSON
 
-4. Launch the full mission
-ros2 launch drone_mission mission.launch.py
+**4. Launch the full mission**
+
+ros2 launch drone_mission mission_launch.py
 
 Useful overrides:
-ros2 launch drone_mission mission.launch.py \
+ros2 launch drone_mission mission_launch.py \
   takeoff_altitude:=15.0 \
   hover_duration:=8.0 \
   battery_failsafe_pct:=25.0
+
+**5. Start Gazebo**
+
+gz sim -v4 -r iris_runway.sdf
   
-6. Visualize in RViz2
+**6. Visualize in RViz2**
+
 rviz2 -d install/drone_mission/share/drone_mission/config/mission.rviz
 
-7. Record the mission
+**7. Record the mission**
+
 ./src/drone_mission/record_mission_bag.sh
 
 **🧠 Mission State Machine**
@@ -159,26 +161,30 @@ MISSION_COMPLETE
 
 ```
 
-Failsafe triggers (any time during NAVIGATE / HOVER):
+**Failsafe triggers (any time during NAVIGATE / HOVER):**
 
 Battery ≤ threshold
 No MAVROS heartbeat for connection_timeout seconds
 FCU reported as disconnected
+Mission Aborted
 
 → Automatic switch to ArduPilot RTL mode.
 
-**👥 Team**
+## 👥 Team
 
-```text
-Member,GitHub,Contributions
-Ahmad,@oye-ahmad,"Project lead, ROS 2 mission stack, integration"
-Zainab,@zainababbasi5,"Computer vision, YOLO experiments, video pipelines"
-Muhammad Ahmad,@Muhammad-AHMAD07,"Dataset tools, annotation conversion, Sobel / grayscale"
-Mahnoor,@sagittariusNoor,Early repository setup & contributions
+- **Ahmad** [](https://github.com/oye-ahmad)  
+  Project lead, ROS 2 mission stack, integration
 
-```
+- **Zainab** [](https://github.com/zainababbasi5)  
+  Computer vision, YOLO experiments, video pipelines
 
-📈 Future Roadmap
+- **Muhammad Ahmad** [](https://github.com/Muhammad-AHMAD07)  
+  Dataset tools, annotation conversion, Sobel / grayscale
+
+- **Mahnoor** [](https://github.com/sagittariusNoor)  
+  Early repository setup & contributions
+
+## 📈 Future Roadmap
 
  Multi-UAV coordination & formation control
  Real-time object detection on live drone camera stream
@@ -191,7 +197,7 @@ Mahnoor,@sagittariusNoor,Early repository setup & contributions
 📄 License
 This project is released under the MIT License. See LICENSE for details.
 
-🙏 Acknowledgements
+Acknowledgements
 
 ArduPilot
 ROS 2
