@@ -63,16 +63,19 @@ UAV_SWARM/
 ## 🚀 Progress Timeline
 
 ### Week 1 — Foundations
+- **Ubuntu + ROS2** — Explore the Linux commands and ROS2 basics concepts ✅
 - **OpenCV + NumPy** — Image manipulation, array operations, and basic computer vision pipeline ✅
 - **YOLOv8 Chicken Detection** — First end-to-end object detection notebook using Ultralytics YOLOv8 ✅
 
-### Week 2 — Detection & Image Processing
+### Week 2 — Detection & Image Processing + ROS2 Nodes & Parameters
+- **ROS2** — Created the Publishers and Subscriber Nodes and explore parameters and learn about launch file ✅
 - **YOLO on Pascal VOC** — Training and inference on Pascal VOC dataset ✅
 - **Sobel Operator** — Edge detection experiments ✅
 - **RGB & Grayscale Pipelines** — Color space handling and preprocessing ✅
 - **Video Processing** — Working with video streams and frame extraction ✅
 
-### Week 3 — Dataset Engineering & Motion
+### Week 3 — Dataset Engineering & Motion + ArduPilot SITL & MavProxy + Gazebo
+- **Simulation of UAV** — Simulates the drone in virtual environment ✅
 - **Annotation Conversion** — Pascal / VisDrone → YOLO format conversion ✅
 - **Annotation Visualization** — Drawing and verifying bounding boxes ✅
 - **Dataset Splitting** — Train / Val / Test split utilities ✅
@@ -80,7 +83,6 @@ UAV_SWARM/
 - **YOLOv8 Models** — `yolov8n.pt` & `yolov8s.pt` integrated ✅
 
 ### Current Focus — ROS 2 Autonomous Flight
-- **my_robot_controller** — Basic publisher / subscriber nodes ✅
 - **drone_mission package** — Full autonomous waypoint mission with MAVROS + ArduPilot SITL ✅
 - **Mission State Machine** — INIT → ARM → TAKEOFF → NAVIGATE ↔ HOVER → RTL → LAND → COMPLETE ✅
 - **Failsafes** — Battery %, connection timeout, FCU disconnect → automatic RTL ✅
@@ -105,20 +107,27 @@ UAV_SWARM/
 **1. Prerequisites**
 
 Ubuntu 22.04
+
 ROS 2 (Humble)
+
 ArduPilot SITL
+
 MAVROS 
+
 Gazebo 
 
 **2. Build the package**
 
 cd ~/UAV_SWARM
+
 colcon build --packages-select drone_mission
+
 source install/setup.bash
 
 **3. Start ArduPilot SITL**
 
 cd ~/ardupilot/ArduCopter
+
 sim_vehicle.py -v ArduCopter --f gazebo-iris --console --model JSON
 
 **4. Launch the full mission**
@@ -126,9 +135,13 @@ sim_vehicle.py -v ArduCopter --f gazebo-iris --console --model JSON
 ros2 launch drone_mission mission_launch.py
 
 Useful overrides:
+
 ros2 launch drone_mission mission_launch.py \
+
   takeoff_altitude:=15.0 \
+  
   hover_duration:=8.0 \
+  
   battery_failsafe_pct:=25.0
 
 **5. Start Gazebo**
@@ -164,8 +177,11 @@ MISSION_COMPLETE
 **Failsafe triggers (any time during NAVIGATE / HOVER):**
 
 Battery ≤ threshold
+
 No MAVROS heartbeat for connection_timeout seconds
+
 FCU reported as disconnected
+
 Mission Aborted
 
 → Automatic switch to ArduPilot RTL mode.
@@ -179,35 +195,46 @@ Mission Aborted
   Computer vision, YOLO experiments, video pipelines
 
 - **Muhammad Ahmad** [](https://github.com/Muhammad-AHMAD07)  
-  Dataset tools, annotation conversion, Sobel / grayscale
+  Dataset tools, annotation conversion, Sobel / grayscale, OpenCV, YOLO
 
 - **Mahnoor** [](https://github.com/sagittariusNoor)  
-  Early repository setup & contributions
+  ROS2 and Simulation Tools
 
 ## 📈 Future Roadmap
 
  Multi-UAV coordination & formation control
+ 
  Real-time object detection on live drone camera stream
+ 
  Cooperative area coverage algorithms (lawnmower, spiral, adaptive)
+ 
  Inter-drone communication (ROS 2 DDS / custom messaging)
+ 
  Hardware-in-the-loop (HITL) testing
+ 
  Real flight tests with PX4 / ArduPilot hardware
 
 
 📄 License
+
 This project is released under the MIT License. See LICENSE for details.
 
 Acknowledgements
 
 ArduPilot
+
 ROS 2
+
 Ultralytics YOLOv8
+
 MAVROS
+
 VisDrone & Pascal VOC datasets
 
 
 
 Built with ❤️ by the UAV Swarm Team
+
 Towards fully autonomous cooperative aerial systems
 
 
