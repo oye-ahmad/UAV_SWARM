@@ -233,8 +233,9 @@ This project is released under the MIT License. See LICENSE for details.
 
 
 
-    **Built with ❤️ by the UAV Swarm Team**
 
-    **Towards fully autonomous cooperative aerial systems**
+                                  Built with ❤️ by the UAV Swarm Team
+
+                            Towards fully autonomous cooperative aerial systems
 
 
