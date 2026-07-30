@@ -130,13 +130,21 @@ cd ~/ardupilot/ArduCopter
 
 sim_vehicle.py -v ArduCopter --f gazebo-iris --console --model JSON
 
-**4. Launch the full mission**
+**4. Start MAVROS**
 
-ros2 launch drone_mission mission_launch.py
+ros2 launch mavros apm.launch fcu_url:=udp://:14550@
 
-Useful overrides:
+**5. Launch the full mission**
 
-ros2 launch drone_mission mission_launch.py \
+ros2 run drone_mission mission_controller 
+
+OR
+
+ros2 launch drone_mission mission_launch
+
+- **Useful overrides:**
+
+ros2 launch drone_mission mission_launch \
 
   takeoff_altitude:=15.0 \
   
@@ -144,15 +152,15 @@ ros2 launch drone_mission mission_launch.py \
   
   battery_failsafe_pct:=25.0
 
-**5. Start Gazebo**
+**6. Start Gazebo**
 
 gz sim -v4 -r iris_runway.sdf
   
-**6. Visualize in RViz2**
+**7. Visualize in RViz2**
 
 rviz2 -d install/drone_mission/share/drone_mission/config/mission.rviz
 
-**7. Record the mission**
+**8. Record the mission**
 
 ./src/drone_mission/record_mission_bag.sh
 
