@@ -215,26 +215,26 @@ Mission Aborted
  Real flight tests with PX4 / ArduPilot hardware
 
 
-📄 License
+## 📄 License
 
 This project is released under the MIT License. See LICENSE for details.
 
-Acknowledgements
+## Acknowledgements
 
-ArduPilot
+- **ArduPilot**
 
-ROS 2
+- **ROS 2**
 
-Ultralytics YOLOv8
+- **Ultralytics YOLOv8**
 
-MAVROS
+- **MAVROS**
 
-VisDrone & Pascal VOC datasets
+- **VisDrone & Pascal VOC datasets**
 
 
 
-Built with ❤️ by the UAV Swarm Team
+    **Built with ❤️ by the UAV Swarm Team**
 
-Towards fully autonomous cooperative aerial systems
+    **Towards fully autonomous cooperative aerial systems**
 
 
