@@ -74,7 +74,7 @@ UAV_SWARM/
 - **RGB & Grayscale Pipelines** — Color space handling and preprocessing ✅
 - **Video Processing** — Working with video streams and frame extraction ✅
 
-### Week 3 — Dataset Engineering & Motion + ArduPilot SITL & MavProxy + Gazebo
+### Week 03 — Dataset Engineering & Motion + ArduPilot SITL & MavProxy + Gazebo
 - **Simulation of UAV** — Simulates the drone in virtual environment ✅
 - **Annotation Conversion** — Pascal / VisDrone → YOLO format conversion ✅
 - **Annotation Visualization** — Drawing and verifying bounding boxes ✅
@@ -82,12 +82,16 @@ UAV_SWARM/
 - **Motion Detection** — Frame-difference based motion detection ✅
 - **YOLOv8 Models** — `yolov8n.pt` & `yolov8s.pt` integrated ✅
 
-### Current Focus — ROS 2 Autonomous Flight
+### Week 04 — ROS 2 Autonomous Flight & YOLO Evaluation Metrics
 - **drone_mission package** — Full autonomous waypoint mission with MAVROS + ArduPilot SITL ✅
 - **Mission State Machine** — INIT → ARM → TAKEOFF → NAVIGATE ↔ HOVER → RTL → LAND → COMPLETE ✅
 - **Failsafes** — Battery %, connection timeout, FCU disconnect → automatic RTL ✅
 - **Visualization** — Live RViz2 path + pose ✅
 - **Recording** — ROS 2 bag recording script ✅
+
+### Week 05 — Research Work & Literature Review of UAV Swarms and Computer Vision
+- **Understanding Research Work** — Downloaded different research papers and reading them to understand the existing works done in these fields
+
 
 ---
 
