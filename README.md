@@ -56,6 +56,17 @@ UAV_SWARM/
 │   ├── DataSet_Splitting/
 │   ├── Motion_Detection_Frame_Difference/
 │   └── YOLOv8 models (.pt)
+|
+├── uav week4/                  # YOLO model evaluation metrics & aerial dataset & ONNX format
+│   ├── Python_Application(cli)/
+│   ├── Pytorch_val/
+│   ├── RESULTS/
+│   ├── onnx_val/
+│   └── train-12 (Final_training)/
+│   ├── comprison.ipynb
+│   ├── main.ipynb
+│   ├── test.ipynb
+│
 │
 └── log.txt
 
