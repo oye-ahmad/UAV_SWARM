@@ -240,7 +240,7 @@ Mission Aborted
 
 ## 📄 License
 
-This project is released under the MIT License. See LICENSE for details.
+This project is released under the MIT License.
 
 ## Acknowledgements
 
