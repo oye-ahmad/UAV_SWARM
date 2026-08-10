@@ -107,7 +107,7 @@ UAV_SWARM/
 
 ## 🛠️ Tech Stack
 
-- **Simulation** → ArduPilot SITL, Gazebo (optional)
+- **Simulation** → ArduPilot SITL, Gazebo
 - **Middleware** → ROS 2 (Humble / Jazzy), MAVROS
 - **Flight Control** → ArduCopter, GUIDED mode, RTL
 - **Computer Vision** → OpenCV, NumPy, Ultralytics YOLOv8
