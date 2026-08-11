@@ -6,7 +6,7 @@
 [![ROS 2](https://img.shields.io/badge/ROS%202-Humble%2FJazzy-blue)](https://docs.ros.org/)
 [![ArduPilot](https://img.shields.io/badge/ArduPilot-SITL-green)](https://ardupilot.org/)
 [![YOLOv8](https://img.shields.io/badge/YOLOv8-Ultralytics-red)](https://github.com/ultralytics/ultralytics)
-[![OpenCV](https://img.shields.io/badge/OpenCV-4.x-orange)](https://opencv.org/)
+[![OpenCV](https://img.shields.io/badge/OpenCV-5.x-orange)](https://opencv.org/)
 
 ---
 
