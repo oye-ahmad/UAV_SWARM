@@ -254,6 +254,8 @@ This project is released under the MIT License.
 
 - **MAVROS**
 
+- **Jetson Nano**
+
 - **VisDrone & Pascal VOC datasets**
 
 
