@@ -224,17 +224,17 @@ Mission Aborted
 
 ## 📈 Future Roadmap
 
- Multi-UAV coordination & formation control
+   - Multi-UAV coordination & formation control
  
- Real-time object detection on live drone camera stream
+   - Real-time object detection on live drone camera stream
  
- Cooperative area coverage algorithms (lawnmower, spiral, adaptive)
+   - Cooperative area coverage algorithms (lawnmower, spiral, adaptive)
  
- Inter-drone communication (ROS 2 DDS / custom messaging)
+   - Inter-drone communication (ROS 2 DDS / custom messaging)
  
- Hardware-in-the-loop (HITL) testing
+   - Hardware-in-the-loop (HITL) testing
  
- Real flight tests with PX4 / ArduPilot hardware
+   - Real flight tests with PX4 / ArduPilot hardware
 
 
 ## 📄 License
