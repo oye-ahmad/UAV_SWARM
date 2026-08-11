@@ -102,6 +102,9 @@ UAV_SWARM/
 ### Week 05 — Research Work & Literature Review of UAV Swarms and Computer Vision
 - **Understanding Research Work** — Downloaded different research papers and reading them to understand the existing works done in these fields
 
+### Week 06 — Path Planning Algorithm implementation in single UAV & Model Deploy on Edge Computer
+- **Path Planning**
+
 
 ---
 
