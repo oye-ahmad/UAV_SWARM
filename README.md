@@ -211,6 +211,18 @@ Mission Aborted
 
 → Automatic switch to ArduPilot RTL mode.
 
+
+## BCD Path Planning Algorithm Visuals
+
+**Geometric-Based BCD**
+
+<img width="2537" height="2562" alt="coverage_plan" src="https://github.com/user-attachments/assets/d2e8a34d-a53f-432a-83ff-1b5e113e03fd" />
+
+**Grid-Based BCD**
+
+<img width="1279" height="1048" alt="planned_vs_actual" src="https://github.com/user-attachments/assets/05e8e63b-ec7f-4d04-91f5-ed4f90211372" />
+
+
 ## 👥 Team
 
 - **Ahmad** [](https://github.com/oye-ahmad)  
