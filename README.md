@@ -29,6 +29,10 @@ The project is structured as a progressive weekly development log, starting from
 ```text
 UAV_SWARM/
 ├── src/
+|   ├── mission_executer.py
+|   ├── mavsdk_waypoint_follower.py
+|   ├── path_plotter.py
+|
 │   ├── drone_mission/          # Full ROS 2 autonomous waypoint mission package
 │   │   ├── drone_mission/
 │   │   │   ├── telemetry_monitor.py
@@ -38,6 +42,12 @@ UAV_SWARM/
 │   │   ├── config/
 │   │   └── README.md
 │   └── my_robot_controller/    # Early ROS 2 learning nodes
+|
+│   ├── coverage_planner/          # Boustrophedon Cell Decomposition Path Coverage Algorithm
+│   │   ├── coverage_planner/
+│   │   │   ├── bcd_coverage_node.py
+│   │   │   ├── bcd_geometric_planner.py
+│   │   │   └── coverage_planner_node.py 
 │
 ├── uav week1/                  # Computer Vision & YOLO fundamentals
 │   ├── Week1_opencv_numpy/
