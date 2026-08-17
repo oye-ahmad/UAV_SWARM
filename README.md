@@ -245,7 +245,7 @@ Mission Aborted
   Computer vision, YOLO experiments, video pipelines
 
 - **Muhammad Ahmad** [](https://github.com/Muhammad-AHMAD07)  
-  Dataset tools, annotation conversion, Sobel / grayscale, OpenCV, YOLO
+  Computer Vision, object Detection, OpenCV, YOLO
 
 - **Mahnoor** [](https://github.com/sagittariusNoor)  
   ROS2 and Simulation Tools
